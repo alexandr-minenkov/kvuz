@@ -3,10 +3,16 @@ package space.triangle.kvuz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -15,6 +21,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Level1 extends AppCompatActivity{
+    //--------------------------------------------------------------------------------------------------
+    Dialog dialog;
+    //--------------------------------------------------------------------------------------------------
     int gamePoints = 0;
 
     @Override
@@ -79,7 +88,7 @@ public class Level1 extends AppCompatActivity{
         mPointsResources.add(322);
         mPointsResources.add(249);
         mPointsResources.add(256);
-        mPointsResources.add(264);;
+        mPointsResources.add(264);
         mPointsResources.add(283);
         mPointsResources.add(242);
         mPointsResources.add(199);
@@ -103,17 +112,75 @@ public class Level1 extends AppCompatActivity{
         Level1Func(mImageResources, mPointsResources);
         //скрытие панели состояния на экране
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//--------------------------------------------------------------------------------------------------
+        //Вызов начального диалогового окна
+        dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.previewdialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); //прозрачный фон диалогового окна
+        dialog.setCancelable(false);
+
+        //кнопка закрытия диалог. окна - начало
+        TextView btnclose = (TextView)dialog.findViewById(R.id.btnclose);
+        btnclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(Level1.this, GameLevels.class);
+                    startActivity(intent); finish();
+                } catch (Exception e) {
+
+                }
+
+                dialog.dismiss(); //закрытие диалог. окна
+            }
+        });
+        //кнопка закрытия диалог. окна - конец
+
+        //кнопка "продолжить" для диалог. окна
+        Button btncontinue = (Button)dialog.findViewById(R.id.btncontinue);
+        btncontinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss(); //закрытие диалог. окна
+            }
+        });
+        dialog.show();
+
+        Button button_back = (Button)findViewById(R.id.button_back);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //команда для кнопки
+
+                //начало конструкции
+                try {
+                    //создать намерение перейти из текущего в главный
+                    Intent intent = new Intent(Level1.this, GameLevels.class);
+                    //совершить событие, закрыть старую активити
+                    startActivity(intent);finish();
+                } catch (Exception e) {
+
+                }
+                //конец конструкции
+            }
+        });
+//--------------------------------------------------------------------------------------------------
     }
 
     public void Level1Func(final List<Integer> mImageResources, final List<Integer> mPointsResources){
         Random mRandom = new Random();
         final ImageButton mRndViewLeft, mRndViewRight;
 
+        final TextView level;
+        level = (TextView)findViewById(R.id.text_level);
+        level.setText("Уровень: 1");
+
         final TextView Points, GamePointsView;
         final int randomPoints = (int)(Math.random()*(340 - 190) + 190);
         Points = (TextView)findViewById(R.id.text_mark);
-        Points.setText("Ваш балл\n" + randomPoints);
-        GamePointsView = (TextView)findViewById(R.id.text_levels);
+        Points.setText("Балл\n" + randomPoints);
+        GamePointsView = (TextView)findViewById(R.id.text_points);
         GamePointsView.setText("Очки: " + gamePoints);
         int randomResource;
 
@@ -146,12 +213,15 @@ public class Level1 extends AppCompatActivity{
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.imageButton: {
+
                         //сделать визуал реакцию на ответ
                         if(leftPoints <= randomPoints) {
                             gamePoints = gamePoints + 2;
                         }
                         else {
-                            --gamePoints;
+                            if (gamePoints != 0) {
+                                --gamePoints;
+                            }
                         }
                         if(gamePoints < 10){
                             Level1Func(mImageResources, mPointsResources);
@@ -167,7 +237,9 @@ public class Level1 extends AppCompatActivity{
                             gamePoints = gamePoints + 2;
                         }
                         else {
-                            --gamePoints;
+                            if (gamePoints != 0) {
+                                --gamePoints;
+                            }
                         }
                         if(gamePoints < 10){
                             Level1Func(mImageResources, mPointsResources);
@@ -212,5 +284,18 @@ public class Level1 extends AppCompatActivity{
         Toast.makeText(getApplicationContext(), textInMessage, Toast.LENGTH_LONG).show();
     }*/
 
+    //Сист. кнопка "Назад" - начало
+    @Override
+    public void onBackPressed() {
+        try {
+            //создать намерение перейти из текущего в главный
+            Intent intent = new Intent(Level1.this, GameLevels.class);
+            //совершить событие, закрыть старую активити
+            startActivity(intent);finish();
+        } catch (Exception e) {
+
+        }
+    }
+    //Сист. кнопка "Назад" - конец
 
 }

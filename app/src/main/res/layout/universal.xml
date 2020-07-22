@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,9 +24,9 @@
             android:id="@+id/container2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:padding="10dp"
 
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/line1"
@@ -38,24 +39,24 @@
                     android:id="@+id/button_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/back"
                     android:background="@drawable/button_stroke_black95_press_white"
+                    android:textSize="24sp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="@string/back"
                     android:textAllCaps="false"
-                    android:textColor="@color/black95"
-                    android:textSize="24sp" />
+                    />
 
                 <TextView
                     android:id="@+id/text_levels"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
-                    android:padding="10dp"
                     android:text="@string/level"
-                    android:textColor="@color/black95"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:gravity="right"
+                    android:padding="10dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,11 +71,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="10dp"
                     android:text="@string/mark"
+                    android:textSize="24sp"
                     android:textColor="@color/black"
-                    android:textSize="24sp" />
+                    android:gravity="center"
+                    android:padding="10dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,21 +85,26 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/img_left"
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:layout_marginRight="5dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/style_img_universal"
                     android:layout_weight="1"
-                    android:background="#FFFFFF"/>
+                    app:srcCompat="@drawable/imgtest" />
 
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/img_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:layout_marginRight="5dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/style_img_universal"
                     android:layout_weight="1"
-                    android:background="#FFFFFF"/>
+                    app:srcCompat="@drawable/imgtest" />
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 </RelativeLayout>

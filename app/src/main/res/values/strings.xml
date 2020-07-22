@@ -4,11 +4,4 @@
     <string name="back">Назад</string>
     <string name="level">Уровень:</string>
     <string name="mark">Ваш балл</string>
-    <string name="dialog_about_title">выа</string>
-    <string name="dialog_about_message">ываываыва</string>
-    <string name="dialog_rate_title">ввввв</string>
-    <string name="dialog_rate_message">ввввв</string>
-    <string name="dialog_rate_ok">вввввв</string>
-    <string name="dialog_rate_cancel">ввввввввввввв</string>
-    <string name="dialog_rate_buy">ввввввввввввввв</string>
 </resources>
