@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">кВУЗ</string>
-    <string name="start">Начать</string>
-    <string name="back">Назад</string>
-    <string name="level">Уровень:</string>
-    <string name="points">Очки:</string>
-    <string name="mark">Ваш балл</string>
-    <string name="textcontinue">Продолжить</string>
-</resources>
