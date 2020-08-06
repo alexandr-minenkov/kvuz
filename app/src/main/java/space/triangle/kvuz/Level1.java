@@ -30,6 +30,7 @@ public class Level1 extends AppCompatActivity{
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.universal);
+
         List<Integer> mImageResources = new ArrayList<>();
         List<Integer> mPointsResources = new ArrayList<>();
         mImageResources.add(R.drawable.as);
