@@ -218,7 +218,9 @@ public class Level1 extends AppCompatActivity{
                             gamePoints = gamePoints + 2;
                         }
                         else {
-                            --gamePoints;
+                            if(gamePoints!=0){
+                                --gamePoints;
+                            }
                         }
                         if(gamePoints < 10){
                             Level1Func(mImageResources, mPointsResources);
@@ -234,7 +236,9 @@ public class Level1 extends AppCompatActivity{
                             gamePoints = gamePoints + 2;
                         }
                         else {
-                            --gamePoints;
+                            if(gamePoints!=0){
+                                --gamePoints;
+                            }
                         }
                         if(gamePoints < 10){
                             Level1Func(mImageResources, mPointsResources);
