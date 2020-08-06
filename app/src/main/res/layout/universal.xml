@@ -102,6 +102,7 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/mark"
+                        android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textSize="28sp"
                         />
@@ -112,7 +113,7 @@
                 android:id="@+id/line3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+
                 android:orientation="horizontal">
 
                 <ImageButton

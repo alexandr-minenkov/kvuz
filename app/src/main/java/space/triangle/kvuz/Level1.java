@@ -213,12 +213,15 @@ public class Level1 extends AppCompatActivity{
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.imageButton: {
+
                         //сделать визуал реакцию на ответ
                         if(leftPoints <= randomPoints) {
                             gamePoints = gamePoints + 2;
                         }
                         else {
-                            --gamePoints;
+                            if (gamePoints != 0) {
+                               --gamePoints;
+                            }
                         }
                         if(gamePoints < 10){
                             Level1Func(mImageResources, mPointsResources);
@@ -234,7 +237,9 @@ public class Level1 extends AppCompatActivity{
                             gamePoints = gamePoints + 2;
                         }
                         else {
-                            --gamePoints;
+                            if (gamePoints != 0) {
+                                --gamePoints;
+                            }
                         }
                         if(gamePoints < 10){
                             Level1Func(mImageResources, mPointsResources);
