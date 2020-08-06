@@ -219,8 +219,13 @@ public class Level1 extends AppCompatActivity{
                             gamePoints = gamePoints + 2;
                         }
                         else {
+<<<<<<< HEAD
                             if (gamePoints != 0) {
                                --gamePoints;
+=======
+                            if(gamePoints!=0){
+                                --gamePoints;
+>>>>>>> 77c46e1c23cfc4f0907459f2b207452ba138de33
                             }
                         }
                         if(gamePoints < 10){
@@ -237,7 +242,11 @@ public class Level1 extends AppCompatActivity{
                             gamePoints = gamePoints + 2;
                         }
                         else {
+<<<<<<< HEAD
                             if (gamePoints != 0) {
+=======
+                            if(gamePoints!=0){
+>>>>>>> 77c46e1c23cfc4f0907459f2b207452ba138de33
                                 --gamePoints;
                             }
                         }
